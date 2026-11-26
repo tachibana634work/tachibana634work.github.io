@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INFORMATION | たちばな茶 / 634</title>
+<meta name="description" content="たちばな茶 / 634 のお知らせ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Michroma&family=Zen+Kaku+Gothic+New:wght@500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<!-- Adobe Fonts（たちばな茶：ADS-saikoro／634：Ethnocentric） -->
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'kcu0pvc',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+<style>
+:root{
+  --paper:#f2efe6;
+  --ink:#191919;
+  --cha:#8f6db5;
+  --cha-deep:#6b5486;
+  --font-cha:"ads-saikoro","Zen Maru Gothic",sans-serif;
+  --font-m:"ethnocentric","Michroma",sans-serif;
+  --font-en:"Chelsea Market","Zen Kaku Gothic New",sans-serif;
+  --font-ja:"Zen Kaku Gothic New",sans-serif;
+  --ease:cubic-bezier(.77,0,.18,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;color:var(--ink);
+  background:var(--paper) url("assets/paper.jpg") center/cover;
+  font-family:var(--font-en);font-synthesis:none;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ---------- ヘッダー（WORKSと同じ） ---------- */
+.head{display:flex;align-items:center;justify-content:space-between;padding:30px 48px;max-width:1440px;margin:0 auto}
+.back{font-size:14px;letter-spacing:.16em;display:inline-flex;gap:10px;align-items:center}
+.back span{transition:transform .3s var(--ease)}
+.back:hover span{transform:translateX(-5px)}
+.menu{list-style:none;display:flex;gap:34px}
+.menu a{font-size:16px;letter-spacing:.14em;position:relative}
+.menu a::after{content:"";position:absolute;left:0;bottom:-5px;height:1px;width:0;background:currentColor;transition:width .45s var(--ease)}
+.menu a:hover::after,.menu a[aria-current]::after{width:100%}
+
+/* 見出し：WORKSページと同じ位置・大きさ */
+.page-title{max-width:1440px;margin:0 auto;padding:40px 48px 0}
+.page-title h1{font-weight:400;font-size:clamp(56px,8vw,112px);letter-spacing:.06em;line-height:1}
+main{max-width:1440px;margin:0 auto;padding:44px 48px 110px}
+
+/* ---------- お知らせ一覧 ---------- */
+.news{list-style:none;border-top:1px solid #19191926;max-width:1000px}
+.news > li{border-bottom:1px solid #19191926}
+.row{display:grid;grid-template-columns:150px 1fr 28px;align-items:baseline;gap:24px;padding:26px 6px}
+.row time{font-size:14px;letter-spacing:.1em;opacity:.65}
+.row .title{font-family:var(--font-ja);font-weight:700;font-size:17px;letter-spacing:.06em;line-height:1.7}
+
+/* 本文があるものだけ開閉できる */
+details summary{list-style:none;cursor:pointer;transition:background .3s}
+details summary::-webkit-details-marker{display:none}
+details summary:hover{background:#ffffff59}
+.plus{position:relative;width:14px;height:14px;justify-self:end;align-self:center}
+.plus::before,.plus::after{content:"";position:absolute;left:0;top:50%;width:100%;height:1.5px;background:var(--ink);transition:transform .35s var(--ease)}
+.plus::after{transform:rotate(90deg)}
+details[open] .plus::after{transform:rotate(0)}
+.body{
+  padding:0 6px 34px calc(150px + 24px + 6px);
+  font-family:var(--font-ja);font-weight:500;font-size:15px;line-height:2.1;letter-spacing:.05em;white-space:pre-line;
+  animation:open .45s var(--ease)
+}
+.body p{white-space:pre-line}
+.pics{display:flex;flex-direction:column;gap:18px;max-width:720px;white-space:normal}
+.body .pics{margin:0 0 22px}
+.pics img{display:block;width:100%;height:auto}
+@keyframes open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+@media (max-width:640px){
+  .head{padding:18px 20px}
+  .back{font-size:11px}.menu{gap:16px}.menu a{font-size:11px}
+  .page-title{padding:24px 20px 0}
+  .page-title h1{font-size:clamp(30px,10.4vw,56px)}
+  main{padding:30px 20px 80px}
+  .row{grid-template-columns:1fr 20px;gap:6px 12px;padding:20px 2px}
+  .row time{grid-column:1;font-size:12px}
+  .row .title{grid-column:1;font-size:15px}
+  .plus{grid-column:2;grid-row:1 / span 2}
+  .body{padding:0 2px 26px;font-size:14px}
+  .pics{gap:12px}
+}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <a class="back" href="index.html"><span>←</span>TOP</a>
+  <ul class="menu">
+    <li><a href="works.html">WORKS</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</header>
+
+<div class="page-title"><h1>INFORMATION</h1></div>
+
+<main>
+  <!-- お知らせは assets/news-data.js から自動で並びます -->
+  <ul class="news" id="news"></ul>
+</main>
+
+<script>document.write('<script src="assets/news-data.js?v=' + Date.now() + '"><\/script>')</script><!-- 古いデータが表示されないよう毎回最新を読み込む -->
+<script>
+(() => {
+  const pathOf = (v, dir) => !v ? '' : (/^(https?:|data:|\/)/.test(v) || v.includes('/')) ? v : `assets/${dir}/${v}`; // ファイル名だけなら assets/フォルダ/ を補う
+  const esc = t => String(t ?? '').replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+  document.getElementById('news').innerHTML = (window.NEWS || []).map(n => {
+    const row = `<time>${esc(n.date)}</time><p class="title">${esc(n.title)}</p>`;
+    const imgs = (n.images || []).filter(Boolean);
+    const hasBody = n.body && n.body.trim();
+    const pics = imgs.length ? `<div class="pics">${imgs.map(src => `<img src="${esc(pathOf(src, 'news'))}" alt="" loading="lazy">`).join('')}</div>` : '';
+    return hasBody || imgs.length
+      ? `<li><details><summary class="row">${row}<span class="plus" aria-hidden="true"></span></summary><div class="body">${pics}${hasBody ? `<p>${esc(n.body)}</p>` : ''}</div></details></li>`
+      : `<li><div class="row">${row}</div></li>`;
+  }).join('');
+})();
+</script>
+</body>
+</html>

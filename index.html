@@ -1,61 +1,585 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tachaHP | Portfolio</title>
-  <meta name="description" content="tachaHPのポートフォリオサイト（準備中）">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f7f6f3;
-      color: #222;
-      font-family: "Helvetica Neue", Arial, "Hiragino Sans", "Noto Sans JP", sans-serif;
-      padding: 24px;
-    }
-    main { max-width: 480px; width: 100%; text-align: center; }
-    .label {
-      font-size: 12px;
-      letter-spacing: 0.3em;
-      color: #888;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    h1 { font-size: 32px; font-weight: 600; letter-spacing: 0.05em; }
-    .role { margin-top: 8px; font-size: 14px; color: #666; }
-    .line { width: 40px; height: 1px; background: #ccc; margin: 32px auto; }
-    .message { font-size: 14px; line-height: 1.9; color: #555; }
-    ul { list-style: none; margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
-    a {
-      display: block;
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: #fff;
-      color: #222;
-      text-decoration: none;
-      font-size: 14px;
-      transition: border-color .2s, transform .2s;
-    }
-    a:hover { border-color: #222; transform: translateY(-1px); }
-    footer { margin-top: 48px; font-size: 11px; color: #aaa; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>たちばな茶 / 634 | Portfolio</title>
+<meta name="description" content="たちばな茶 / 634 のポートフォリオ。Graphic・Illustration・Goods planning">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Michroma&family=Zen+Kaku+Gothic+New:wght@500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<!-- Adobe Fonts（たちばな茶：ADS-saikoro／634：Ethnocentric） -->
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'kcu0pvc',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+<style>
+/* =========================================================
+   カラー・フォント設定（ここを変えると全体のテイストが変わります）
+   ========================================================= */
+:root{
+  --paper:#f2efe6;
+  --ink:#191919;
+  --muted:#8a8780;
+  --cha:#8f6db5;        /* たちばな茶 メイン */
+  --cha-deep:#6b5486;
+  --cha-bg:#ece2f5;
+  --cha-soft:#d9c4ec;
+  --m-bg:#ffffff;       /* 634 背景 */
+  --m-ink:#111111;
+  /* ▼ たちばな茶のフォント（Adobe Fonts：ADS-saikoro） */
+  --font-cha:"ads-saikoro","Zen Maru Gothic",sans-serif;
+  /* ▼ 634のフォント（Adobe Fonts：Ethnocentric） */
+  --font-m:"ethnocentric","Michroma",sans-serif;
+  /* ▼ それ以外の英語（メニュー・Welcome!・ID など）。日本語は Zen Kaku Gothic New */
+  --font-en:"Chelsea Market","Zen Kaku Gothic New",sans-serif;
+  --nav-w:240px;
+  --note-top:138px;  /* ノートの位置。メニューはこの下に続く */
+  --ch:516px;   /* キャラの基準の高さ。2体の間隔もこれに比例 */
+  --ease:cubic-bezier(.77,0,.18,1);
+  --pop:cubic-bezier(.34,1.56,.64,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--font-en);font-synthesis:none;
+  overflow:hidden;-webkit-font-smoothing:antialiased;
+  transition:color .6s var(--ease);
+}
+a{color:inherit;text-decoration:none}
+/* 画用紙の質感（初期画面の背景） */
+body{background:var(--paper) url("assets/paper.jpg") center/cover no-repeat}
+
+img{display:block;max-width:100%}
+
+/* ---------- 拡大縮小する枠 ---------- */
+.canvas{position:fixed;left:0;top:0;width:1440px;height:860px;transform-origin:0 0;z-index:1}
+.bg-layers{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:absolute;inset:0 auto 0 0;width:var(--nav-w);z-index:20;
+  display:flex;flex-direction:column;
+  padding:34px 0 30px 22px;
+  color:var(--ink);transition:color .6s var(--ease);
+}
+.sns{--sns-name:12px;--sns-gap:7px;--sns-id:10px;display:flex;align-items:flex-start;gap:20px;width:max-content;margin-top:auto}
+/* Xロゴ（公式 brand toolkit の SVG。色は黒で固定） */
+.sns .xlogo{flex:none;height:calc(var(--sns-name) + var(--sns-gap) + var(--sns-id));width:auto;aspect-ratio:1200/1227;fill:#000;margin-right:-4px}
+.sns a{display:flex;flex-direction:column;gap:var(--sns-gap);white-space:nowrap;transition:opacity .3s}
+.sns a b{font-family:var(--font-en);font-weight:700;font-size:var(--sns-name);line-height:1;letter-spacing:.1em}
+.sns a em{font-style:normal;font-family:var(--font-en);font-weight:500;font-size:var(--sns-id);line-height:1;letter-spacing:.06em;font-variant-numeric:lining-nums;opacity:.5}
+.sns a:hover{opacity:.55}
+.menu{list-style:none;display:flex;flex-direction:column;gap:30px;position:absolute;top:calc(var(--note-top) + 268px);left:22px}
+.menu a{display:inline-block;font-weight:700;font-size:32px;letter-spacing:.14em;position:relative}
+.menu a::after{
+  content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:currentColor;
+  transition:width .45s var(--ease)
+}
+.menu a:hover::after{width:100%}
+.nav small{position:absolute;left:calc(1440px - 32px);bottom:24px;font-family:var(--font-en);font-size:8px;letter-spacing:.2em;opacity:.4;white-space:nowrap;writing-mode:vertical-rl;transform:rotate(180deg)}
+
+/* nav colors per mode */
+body[data-mode="m"] .nav{color:var(--m-ink)}
+body[data-mode="cha"] .nav{color:var(--cha-deep)}
+
+/* ---------- INFORMATION（ノートの切れ端） ---------- */
+.note{
+  position:absolute;top:var(--note-top);left:18px;width:330px;z-index:2;
+  transform:rotate(-2.5deg);filter:drop-shadow(0 3px 4px #0000001f);
+  font-family:"Zen Kaku Gothic New",sans-serif;color:#2c3550;
+}
+.note::before{ /* マスキングテープ */
+  content:"";position:absolute;top:-12px;left:50%;width:92px;height:25px;z-index:2;
+  transform:translateX(-50%) rotate(4deg);
+  background:repeating-linear-gradient(45deg,#e4e4e4d9 0 6px,#cfcfcfd9 6px 12px);
+  clip-path:polygon(3% 0,97% 4%,100% 22%,96% 45%,100% 70%,97% 100%,2% 96%,0 75%,4% 50%,0 25%);
+}
+.note-paper{
+  --lh:30px;
+  background:
+    repeating-linear-gradient(transparent 0 calc(var(--lh) - 1px),#9fb6d8aa calc(var(--lh) - 1px) var(--lh)),
+    #fdfcf7;
+  background-position:0 16px,0 0;
+  padding:16px 18px 30px 20px;line-height:var(--lh);
+  clip-path:polygon(0% 0%,100% 0%,100% 98.7%,95.5% 97%,90.9% 98%,86.4% 96.7%,81.8% 96.6%,77.3% 99.6%,72.7% 99.9%,68.2% 95.4%,63.6% 98.6%,59.1% 98.7%,54.5% 94.5%,50% 97.4%,45.5% 95.4%,40.9% 97.4%,36.4% 96.5%,31.8% 99.2%,27.3% 96.5%,22.7% 95.2%,18.2% 97.1%,13.6% 95.9%,9.1% 96.3%,4.5% 99.6%,0% 95.8%);
+}
+.note h2{font-family:var(--font-en);font-weight:400;font-size:21px;letter-spacing:.14em;line-height:var(--lh)}
+.note{text-decoration:none;cursor:pointer;transition:transform .45s var(--pop),filter .3s}
+.note:hover{transform:rotate(-1deg) translateY(-4px);filter:drop-shadow(0 8px 10px #00000026)}
+.note h2::after{content:"→";display:inline-block;margin-left:10px;font-size:.8em;opacity:.45;transition:transform .3s var(--ease),opacity .3s}
+.note:hover h2::after{transform:translateX(5px);opacity:1}
+.note ul{list-style:none}
+.note li{font-size:15px;line-height:var(--lh)}
+.note time{display:block;font-family:var(--font-en);font-size:12px;letter-spacing:.08em;opacity:.6}
+
+/* ---------- STAGE ---------- */
+.stage{position:absolute;inset:0 0 0 var(--nav-w);--cha-x:max(23%, calc(130px + var(--ch) * .42))}
+
+/* 背景レイヤー（キャラ位置から円形に広がる） */
+.layer{
+  position:fixed;inset:0;
+  --x:var(--cx,25%);--y:var(--cy,60%);
+  clip-path:circle(0% at var(--x) var(--y));
+  transition:clip-path 1s var(--ease);
+  pointer-events:none;
+}
+.layer--m{--x:var(--mx,75%);--y:var(--my,60%)}
+body[data-mode="cha"] .layer--cha,
+body[data-mode="m"] .layer--m{clip-path:circle(150% at var(--x) var(--y))}
+
+.layer--cha{
+  background:
+    radial-gradient(circle at 80% 20%,#fff8 0,transparent 40%),
+    radial-gradient(#ffffff90 1.4px,transparent 1.6px) 0 0/26px 26px,
+    var(--cha-bg);
+}
+.layer--cha .wave{position:absolute;left:0;right:0;bottom:0;height:34%;width:100%}
+.star{position:absolute;width:var(--s,40px);color:var(--cha-soft);animation:drift 7s ease-in-out infinite;animation-delay:var(--d,0s);animation-play-state:paused}
+/* 見えていない画面のアニメは止めて軽くする */
+body[data-mode="cha"] .star,body[data-mode="m"] .layer--m::before{animation-play-state:running}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-16px) rotate(14deg)}}
+
+.layer--m{background:var(--m-bg)}
+.layer--m::before{ /* フィルムグレイン */
+  content:"";position:absolute;inset:-50%;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain .6s steps(4) infinite;animation-play-state:paused;
+}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-4%,3%)}50%{transform:translate(3%,-5%)}75%{transform:translate(-2%,4%)}100%{transform:translate(0,0)}}
+.layer--m .ghost{
+  position:absolute;right:-2vw;top:50%;transform:translateY(-50%);
+  font-family:var(--font-m);font-size:34vw;line-height:.8;color:transparent;
+  -webkit-text-stroke:1px #00000012;letter-spacing:-.04em;white-space:nowrap
+}
+.layer--m .grid{position:absolute;inset:0;
+  background:linear-gradient(#0000000a 1px,transparent 1px) 0 0/100% 80px,linear-gradient(90deg,#0000000a 1px,transparent 1px) 0 0/80px 100%}
+
+/* ---------- 初期画面のテキスト ---------- */
+.intro{position:absolute;inset:0;pointer-events:none;transition:opacity .5s var(--ease),filter .5s}
+body[data-mode] .intro{opacity:0;filter:blur(6px)}
+.intro h1{
+  position:absolute;top:34px;left:50%;transform:translateX(-50%);
+  font-weight:400;font-size:30px;letter-spacing:.3em;white-space:nowrap
+}
+/* 右上の大きな透かし文字 */
+.intro .bigword{
+  position:absolute;top:-.16em;right:-.06em;
+  font-family:var(--font-en);font-size:180px;line-height:1;letter-spacing:.02em;
+  color:#1919190d;white-space:nowrap;user-select:none
+}
+/* 訪問者カウンター */
+.intro .visitor{
+  position:absolute;top:86px;left:50%;transform:translateX(-50%);
+  font-size:16px;letter-spacing:.18em;color:var(--ink);white-space:nowrap;
+  opacity:0;transition:opacity .8s
+}
+.intro .visitor.show{opacity:1}
+.intro .visitor b{font-weight:400;font-size:1.75em;letter-spacing:.06em;margin:0 .1em;line-height:1;vertical-align:-.08em}
+
+/* ---------- キャラクター ---------- */
+.chara{
+  position:absolute;bottom:13%;z-index:4;cursor:pointer;
+  transition:left 1s var(--ease),transform 1s var(--ease),opacity .6s var(--ease),filter .6s var(--ease);
+  transform:translateX(-50%);
+}
+.chara img{height:100%;width:auto;max-width:none;transition:transform .5s var(--pop),filter .8s var(--ease)}
+.chara:hover img{transform:translateY(-10px) rotate(-1.5deg)}
+.chara--cha{left:calc(50% - var(--ch) * .47);height:var(--ch)}
+.chara--m{left:calc(50% + var(--ch) * .47);height:calc(var(--ch) * 1.1)}
+.chara--m img{mix-blend-mode:multiply}
+
+/* アクティブ時 */
+/* 選択後のキャラ位置：左上のノートと重ならないように */
+body[data-mode="cha"] .chara--cha{left:var(--cha-x);transform:translateX(-50%) scale(1.12)}
+body[data-mode="cha"] .chara--m{left:105%;opacity:0;filter:blur(10px);pointer-events:none}
+body[data-mode="m"] .chara--m{left:77%;transform:translateX(-50%) scale(1.1)}
+body[data-mode="m"] .chara--cha{left:-10%;opacity:0;filter:blur(10px);pointer-events:none}
+body[data-mode] .chara:hover img{transform:none}
+
+/* 634：ふわふわ浮遊 */
+body[data-mode="m"] .chara--m img{animation:float 4.5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+
+/* ---------- パネル共通 ---------- */
+.panel{position:absolute;top:0;bottom:0;z-index:5;display:flex;flex-direction:column;justify-content:center;pointer-events:none}
+body[data-mode="cha"] .panel--cha,body[data-mode="m"] .panel--m{pointer-events:auto}
+.panel > *{opacity:0;transition:opacity .5s,transform .7s var(--ease)}
+body[data-mode="cha"] .panel--cha > *,body[data-mode="m"] .panel--m > *{opacity:1;transform:none}
+.panel > *:nth-child(1){transition-delay:.35s}
+.panel > *:nth-child(2){transition-delay:.45s}
+.panel > *:nth-child(3){transition-delay:.55s}
+.panel > *:nth-child(4){transition-delay:.65s}
+.panel > *:nth-child(5){transition-delay:.75s}
+body:not([data-mode]) .panel > *{transition-delay:0s}
+
+/* ---------- 作品スライダー（1:1、自動で横に流れる） ---------- */
+.works{--n:2;--gap:14px;margin:30px 0 34px;overflow:hidden;position:relative}
+.works-track{display:flex;gap:var(--gap);will-change:transform}
+.work{
+  flex:0 0 calc((100% - var(--gap) * (var(--n) - 1)) / var(--n));aspect-ratio:1/1;position:relative;display:block;
+  background:var(--img) center/cover no-repeat;
+}
+.work{overflow:hidden}
+.work img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block}
+.work em{position:absolute;left:12px;bottom:10px;font-style:normal;font-size:11px;letter-spacing:.18em;opacity:.55}
+
+/* ---------- たちばな茶 パネル ---------- */
+.panel--cha{left:calc(var(--cha-x) + var(--ch) * .42 + 36px);right:5%;color:var(--cha-deep);font-family:var(--font-cha)}
+.panel--cha > *{transform:translateY(24px)}
+.cha-cat{font-weight:700;font-size:13px;letter-spacing:.2em;color:var(--cha)}
+.cha-name{font-weight:900;font-size:92px;line-height:1.05;color:var(--cha);margin-top:6px;letter-spacing:.02em}
+.cha-name span{display:inline-block;transform:translateY(40%) scale(.6);opacity:0;transition:transform .7s var(--pop),opacity .4s}
+body[data-mode="cha"] .cha-name span{transform:none;opacity:1}
+.cha-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.cha-tags li{list-style:none;background:#fff;border-radius:99px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--cha-deep);box-shadow:0 2px 0 var(--cha-soft)}
+.panel--cha .work{--img:linear-gradient(150deg,#f8f1fd,#dcc8ee);color:var(--cha)}
+.panel--cha .work:nth-child(4n+2){--img:linear-gradient(150deg,#fdf3f8,#e9cfe6)}
+.panel--cha .work:nth-child(4n+3){--img:linear-gradient(150deg,#f1f3fd,#cdd3ef)}
+.panel--cha .work:nth-child(4n+4){--img:linear-gradient(150deg,#f6f0fb,#e2d2f0)}
+.cha-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-cha{
+  display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:99px;
+  font-weight:900;font-size:14px;letter-spacing:.14em;
+  transition:transform .4s var(--pop),box-shadow .3s;
+}
+.btn-cha.fill{background:var(--cha);color:#fff;box-shadow:0 5px 0 var(--cha-deep)}
+.btn-cha.line{background:#fff;color:var(--cha);box-shadow:0 5px 0 var(--cha-soft)}
+.btn-cha:hover{transform:translateY(3px)}
+.btn-cha.fill:hover{box-shadow:0 2px 0 var(--cha-deep)}
+.btn-cha.line:hover{box-shadow:0 2px 0 var(--cha-soft)}
+
+/* ---------- 634 パネル ---------- */
+.panel--m{left:140px;right:calc(23% + var(--ch) * .47 + 32px);color:var(--m-ink);font-family:var(--font-m)}
+.panel--m > *{transform:translateX(-30px)}
+.m-cat{font-size:10px;letter-spacing:.18em;line-height:1.8;color:#00000099}
+.m-name{font-size:130px;line-height:.95;letter-spacing:-.03em;margin-top:10px;position:relative}
+.m-name .o{color:transparent;-webkit-text-stroke:1px var(--m-ink)}
+.m-name .f{position:absolute;left:0;top:0;clip-path:inset(-30% 130% -30% -30%);transition:clip-path 1.1s .5s var(--ease)}
+body[data-mode="m"] .m-name .f{clip-path:inset(-30% -30% -30% -30%)}
+/* ↑ 文字が枠より少しはみ出すフォントでも塗り残しが出ないよう、切り抜き範囲を広めに */
+.m-sub{font-size:13px;letter-spacing:.6em;margin-top:6px}
+.m-tags{display:flex;gap:18px;margin-top:18px;font-family:"Zen Kaku Gothic New";font-weight:500;font-size:13px;letter-spacing:.1em;opacity:.75}
+.m-tags li{list-style:none}
+.panel--m .work{--img:repeating-linear-gradient(135deg,#f3f3f3 0 10px,#e9e9e9 10px 20px);color:var(--m-ink)}
+.panel--m .work:nth-child(even){--img:repeating-linear-gradient(45deg,#efefef 0 10px,#e4e4e4 10px 20px)}
+.m-btns{display:flex;gap:0}
+.btn-m{
+  display:inline-flex;align-items:center;gap:16px;padding:17px 26px;font-size:11px;letter-spacing:.28em;
+  border:1px solid var(--m-ink);position:relative;overflow:hidden;isolation:isolate;
+}
+.btn-m + .btn-m{border-left:0}
+.btn-m::before{content:"";position:absolute;inset:0;background:var(--m-ink);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease);z-index:-1}
+.btn-m:hover::before{transform:scaleX(1);transform-origin:left}
+.btn-m:hover{color:var(--m-bg)}
+.btn-m.fill{background:var(--m-ink);color:var(--m-bg)}
+.btn-m.fill::before{background:var(--m-bg)}
+.btn-m.fill:hover{color:var(--m-ink)}
+
+/* ---------- 戻る／切り替え ---------- */
+.switch{
+  position:absolute;top:30px;right:34px;z-index:8;display:flex;gap:18px;align-items:center;
+  font-size:10px;letter-spacing:.28em;opacity:0;pointer-events:none;transition:opacity .4s;
+}
+body[data-mode] .switch{opacity:1;pointer-events:auto;transition-delay:.6s}
+body[data-mode="m"] .switch{color:var(--m-ink);font-family:var(--font-m)}
+body[data-mode="cha"] .switch{color:var(--cha-deep);font-family:var(--font-cha);font-weight:700}
+.switch button{all:unset;cursor:pointer;border-bottom:1px solid currentColor;padding-bottom:3px}
+.switch .to-m,.switch .to-cha{display:none}
+body[data-mode="cha"] .switch .to-m,body[data-mode="m"] .switch .to-cha{display:inline}
+
+/* スマホ用の顔アイコン（PCでは非表示） */
+.face{display:none}
+
+/* ---------- スマホ ---------- */
+/* ADS-saikoro は Regular のみなので、偽の太字にならないよう太さを統一 */
+.panel--cha,.panel--cha *,.tagname--cha b,body[data-mode="cha"] .switch{font-weight:400!important;font-synthesis:none}
+
+.panel--m,.panel--m *,body[data-mode="m"] .switch{font-synthesis:none}
+
+@media (max-width:820px){
+  :root{--nav-w:0px}
+  body{overflow:auto}
+  .nav{inset:0 0 auto 0;width:auto;height:auto;flex-direction:row;align-items:center;padding:16px 18px}
+  .sns{flex-direction:row;gap:18px}.sns a em{display:none}.sns .xlogo{height:var(--sns-name);margin-right:0}
+  .nav{flex-wrap:wrap;row-gap:12px}.menu{width:100%;justify-content:space-between}
+  .menu{flex-direction:row;gap:14px;position:static;transform:none}
+  .menu a{font-size:10px;letter-spacing:.08em}
+  .sns{margin-top:0}.nav small{right:16px;bottom:14px;font-size:7px}
+  .intro .bigword{top:auto;bottom:4%;font-size:22vw}
+  .note{position:fixed;top:calc(200px + var(--ch) * 1.1 + 36px);left:50%;width:240px;transform:translateX(-50%) rotate(-2deg)}
+  .note-paper{--lh:22px;padding:14px 16px 26px 18px;background-position:0 14px,0 0;background-image:repeating-linear-gradient(transparent 0 21px,#9fb6d8aa 21px 22px)}
+  .note h2{font-size:14px}.note li{font-size:11px}.note time{font-size:10px}
+  .note::before{width:78px;height:22px;top:-11px}
+  body[data-mode] .note{display:none}
+  .note:hover{transform:translateX(-50%) rotate(-2deg)}
+  .intro h1{top:100px;font-size:20px}
+  .intro .visitor{top:140px;font-size:11px}
+  .canvas{position:static;width:auto;height:auto;transform:none!important}
+  .nav{position:fixed}.stage{position:fixed;overflow:hidden}
+  .nav small{position:fixed;left:auto;right:16px;bottom:14px;font-size:7px}
+  :root{--note-top:0px}
+  .cha-name{font-size:46px}.intro .bigword{font-size:22vw}
+  /* キャラ選択後：全身イラストは隠し、名前の左に丸い顔アイコン */
+  body[data-mode] .chara{opacity:0!important;pointer-events:none}
+  .panel > *{flex-shrink:0}
+  .name-row{display:flex;align-items:center;gap:14px;margin-top:10px}
+  .name-row .cha-name,.name-row .m-name{margin-top:0}
+  .face{display:block;flex:none;width:64px;height:64px;border-radius:50%}
+  .face--cha{box-shadow:0 0 0 1.5px var(--cha)}
+  .face--m{box-shadow:0 0 0 1.5px var(--m-ink)}
+  .panel{top:120px!important;justify-content:center!important}
+  .works{--n:1;width:min(100%,38vh);margin-left:auto!important;margin-right:auto!important}
+  .cha-cat{font-size:11px;letter-spacing:.08em}.m-cat{font-size:9px;letter-spacing:.1em}
+  :root{--ch:min(34vh,46vw)}
+  .chara--cha,.chara--m{bottom:auto;top:200px}
+  .chara--cha{top:calc(200px + var(--ch) * .1)}  /* 足元を634とそろえる */
+    body[data-mode="cha"] .chara--cha{left:50%;transform:translateX(-50%) scale(.7);bottom:auto;top:110px}
+  body[data-mode="m"] .chara--m{left:50%;transform:translateX(-50%) scale(.62);bottom:auto;top:110px}
+  .panel{left:22px!important;right:22px!important;top:auto;bottom:24px;justify-content:flex-end}
+  .cha-name{font-size:46px}.m-name{font-size:72px}
+  .works{margin:16px 0 20px}
+  .switch{top:96px;right:18px}
+  .m-tags{gap:10px;font-size:11px}
+  .btn-cha{padding:12px 20px;font-size:12px}.btn-m{padding:13px 16px;font-size:9px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01s!important;transition-delay:0s!important}}
+</style>
 </head>
 <body>
-  <main>
-    <p class="label">Coming soon</p>
-    <h1>tachaHP</h1>
 
-    <div class="line"></div>
+<!-- ===== 左メニュー ===== -->
+<!-- 背景（画面いっぱい） -->
+<div class="bg-layers" id="bg">
+  <!-- 背景：たちばな茶 -->
+  <div class="layer layer--cha" aria-hidden="true">
+    <svg class="star" style="left:48%;top:10%;--s:46px" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.5l3 7 7.5.6-5.7 4.9 1.8 7.4L12 17.4l-6.6 4 1.8-7.4L1.5 9.1 9 8.5z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+    <svg class="star" style="left:88%;top:16%;--s:30px;--d:-2s" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.5l3 7 7.5.6-5.7 4.9 1.8 7.4L12 17.4l-6.6 4 1.8-7.4L1.5 9.1 9 8.5z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+    <svg class="star" style="left:6%;top:18%;--s:36px;--d:-4s" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.5l3 7 7.5.6-5.7 4.9 1.8 7.4L12 17.4l-6.6 4 1.8-7.4L1.5 9.1 9 8.5z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/></svg>
+    <svg class="star" style="left:92%;top:74%;--s:52px;--d:-1s" viewBox="0 0 24 24"><path fill="#fff" d="M12 1.5l3 7 7.5.6-5.7 4.9 1.8 7.4L12 17.4l-6.6 4 1.8-7.4L1.5 9.1 9 8.5z" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg>
+    <svg class="wave" viewBox="0 0 1200 300" preserveAspectRatio="none"><path d="M0 90 C 200 10, 380 160, 620 80 S 1000 20, 1200 70 L1200 300 L0 300Z" fill="#d6c2ea"/></svg>
+  </div>
 
-    <p class="message">
-      ポートフォリオサイトは現在準備中です。
-    </p>
-    <footer>&copy; tachaHP</footer>
-  </main>
+  <!-- 背景：634 -->
+  <div class="layer layer--m" aria-hidden="true">
+    <div class="grid"></div>
+    <div class="ghost">634</div>
+  </div>
+
+</div>
+
+<!-- ▼ 1440×860 の比率のまま、画面サイズに合わせて拡大縮小する枠 -->
+<div class="canvas" id="canvas">
+<nav class="nav">
+  <div class="sns">
+    <svg class="xlogo" viewBox="0 0 1200 1227" aria-label="X" role="img"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+    <a href="https://x.com/tachi_bana_1" target="_blank" rel="noopener"><b>たちばな茶</b><em>@tachi_bana_1</em></a>
+    <a href="https://x.com/m634w" target="_blank" rel="noopener"><b>634</b><em>@m634w</em></a>
+  </div>
+  <a class="note" id="information" href="information.html" aria-label="INFORMATION（お知らせ一覧へ）">
+    <div class="note-paper">
+      <h2>INFORMATION</h2>
+      <!-- ▼ お知らせは assets/news-data.js から上2件を自動表示（下は読み込めなかったとき用） -->
+      <ul id="note-list">
+        <li><time>2026.11.26</time>サイトを公開しました！</li>
+        <li><time>COMING SOON</time>WORKS・ABOUT は準備中です</li>
+      </ul>
+    </div>
+  </a>
+  <ul class="menu">
+    <li><a href="works.html">WORKS</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+  <small>© 2026 TACHIBANACHA / 634</small>
+</nav>
+
+<main class="stage" id="stage">
+
+
+  <!-- 初期画面 -->
+  <div class="intro">
+    <div class="bigword" aria-hidden="true">PORTFOLIO</div>
+    <h1>Welcome!</h1>
+    <p class="visitor" id="visitor">You are our <b id="visitor-no"></b> visitor.</p>
+  </div>
+
+  <!-- キャラクター -->
+  <div class="chara chara--cha" data-mode="cha" role="button" tabindex="0" aria-label="たちばな茶を見る">
+    <img src="assets/sd-cha.webp" alt="たちばな茶 SDキャラクター">
+  </div>
+  <div class="chara chara--m" data-mode="m" role="button" tabindex="0" aria-label="634を見る">
+    <img src="assets/sd-634.webp" alt="634 SDキャラクター">
+  </div>
+
+  <!-- ===== たちばな茶 パネル ===== -->
+  <section class="panel panel--cha" aria-label="たちばな茶">
+    <p class="cha-cat">Graphic ★ Illustration ★ Goods planning</p>
+    <div class="name-row"><img class="face face--cha" src="assets/icon-cha.webp" alt=""><h2 class="cha-name" aria-label="たちばな茶"></h2></div>
+    <ul class="cha-tags"><li>★ 使いやすさ重視</li><li>★ かわいい</li><li>★ ポップ</li></ul>
+    <div class="works" data-slider>
+      <!-- 作品画像（1:1に切り抜いて表示）は style="--img:url(assets/works/cha-01.jpg)" のように指定 -->
+      <div class="works-track">
+        <a class="work" href="works.html#tachibana"><em>WORK 01</em></a>
+        <a class="work" href="works.html#tachibana"><em>WORK 02</em></a>
+        <a class="work" href="works.html#tachibana"><em>WORK 03</em></a>
+        <a class="work" href="works.html#tachibana"><em>WORK 04</em></a>
+      </div>
+    </div>
+    <div class="cha-btns">
+      <a class="btn-cha fill" href="works.html#tachibana">VIEW MORE <span>→</span></a>
+    </div>
+  </section>
+
+  <!-- ===== 634 パネル ===== -->
+  <section class="panel panel--m" aria-label="634">
+    <p class="m-cat">GRAPHIC ★ ILLUSTRATION ★ GOODS PLANNING</p>
+    <div class="name-row"><img class="face face--m" src="assets/icon-634.webp" alt=""><h2 class="m-name"><span class="o">634</span><span class="f">634</span></h2></div>
+    <p class="m-sub">MUSASHI</p>
+    <div>
+      <ul class="m-tags"><li>#個性重視</li><li>#かっこいい</li><li>#モノクロ</li></ul>
+      <div class="works" data-slider>
+        <!-- 作品画像（1:1に切り抜いて表示）は style="--img:url(assets/works/634-01.jpg)" のように指定 -->
+        <div class="works-track">
+          <a class="work" href="works.html#634"><em>/01</em></a>
+          <a class="work" href="works.html#634"><em>/02</em></a>
+          <a class="work" href="works.html#634"><em>/03</em></a>
+          <a class="work" href="works.html#634"><em>/04</em></a>
+        </div>
+      </div>
+    </div>
+    <div class="m-btns">
+      <a class="btn-m fill" href="works.html#634">VIEW MORE <span>→</span></a>
+    </div>
+  </section>
+
+  <div class="switch">
+    <button class="to-m" data-go="m">634 →</button>
+    <button class="to-cha" data-go="cha">← たちばな茶</button>
+    <button data-go="">✕ BACK</button>
+  </div>
+</main>
+</div><!-- /canvas -->
+
+<script>document.write('<script src="assets/news-data.js?v=' + Date.now() + '"><\/script>')</script><!-- 古いデータが表示されないよう毎回最新を読み込む -->
+<script>document.write('<script src="assets/top-data.js?v=' + Date.now() + '"><\/script>')</script><!-- 古いデータが表示されないよう毎回最新を読み込む -->
+<script>
+(() => {
+  const body = document.body, stage = document.getElementById('stage'), bg = document.getElementById('bg'), canvas = document.getElementById('canvas');
+  const nameEl = document.querySelector('.cha-name');
+  [...'たちばな茶'].forEach((ch, i) => {
+    const s = document.createElement('span');
+    s.textContent = ch; s.style.transitionDelay = (0.35 + i * 0.07) + 's';
+    nameEl.appendChild(s);
+  });
+
+  // ===== 1440×860 の比率を保ったまま拡大縮小（スマホ幅では使わない） =====
+  const BASE_W = 1440, BASE_H = 860, mq = matchMedia('(max-width:820px)');
+  const fit = () => {
+    if (mq.matches) { canvas.style.transform = ''; canvas.style.left = canvas.style.top = ''; return; }
+    const k = Math.min(innerWidth / BASE_W, innerHeight / BASE_H);
+    canvas.style.transform = `scale(${k})`;
+    canvas.style.left = ((innerWidth - BASE_W * k) / 2) + 'px';
+    canvas.style.top = ((innerHeight - BASE_H * k) / 2) + 'px';
+  };
+  fit(); addEventListener('resize', fit);
+
+  // 円が広がる中心を、キャラの位置に合わせる（そのモードの背景だけ一瞬アニメ停止して設定）
+  const setOrigin = (m) => {
+    const r = document.querySelector('.chara--' + m).getBoundingClientRect();
+    const layers = document.querySelectorAll(m === 'm' ? '.layer--m' : '.layer--cha');
+    layers.forEach(l => l.style.transition = 'none');
+    bg.style.setProperty(m === 'm' ? '--mx' : '--cx', (r.left + r.width / 2) + 'px');
+    bg.style.setProperty(m === 'm' ? '--my' : '--cy', (r.top + r.height * 0.45) + 'px');
+    void bg.offsetWidth;
+    layers.forEach(l => l.style.transition = '');
+  };
+  const setMode = (m) => {
+    if (m) { if (body.dataset.mode !== m) setOrigin(m); body.dataset.mode = m; }
+    else delete body.dataset.mode;
+  };
+
+  const canHover = matchMedia('(hover:hover)').matches;
+  document.querySelectorAll('.chara').forEach(c => {
+    if (canHover) c.addEventListener('mouseenter', () => { if (!body.dataset.mode) setMode(c.dataset.mode); });
+    c.addEventListener('click', () => setMode(body.dataset.mode === c.dataset.mode ? null : c.dataset.mode));
+    c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setMode(c.dataset.mode); } });
+  });
+  if (canHover) stage.addEventListener('mouseleave', () => setMode(null));
+  document.querySelectorAll('.switch button').forEach(b => b.addEventListener('click', () => setMode(b.dataset.go || null)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMode(null); });
+
+  // ===== 作品スライダー：PCは2枚、スマホは1枚ずつ表示して自動でループ =====
+  const INTERVAL = 1700, SPEED = 550; // 切り替え間隔／動く速さ（ミリ秒）
+  // トップ用の画像データ（assets/top-data.js）があれば、それでスライダーを作り直す
+  if (window.TOP) {
+    const pathOf = (v, dir) => !v ? '' : (/^(https?:|data:|\/)/.test(v) || v.includes('/')) ? v : `assets/${dir}/${v}`; // ファイル名だけなら assets/フォルダ/ を補う
+    const escA = t => String(t ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    [['cha', '.panel--cha', 'WORK '], ['m', '.panel--m', '/']].forEach(([key, sel, pre]) => {
+      const list = (window.TOP[key] || []).filter(Boolean);
+      const track = document.querySelector(sel + ' .works-track');
+      if (!list.length || !track) return;
+      track.innerHTML = list.map((it, i) => {
+        const c = it.crop || {}, x = c.x ?? 50, y = c.y ?? 50, z = c.z ?? 1;
+        const inner = it.img
+          ? `<img src="${escA(pathOf(it.img, 'works'))}" alt="" style="object-position:${x}% ${y}%;transform:scale(${z});transform-origin:${x}% ${y}%">`
+          : `<em>${pre}${String(i + 1).padStart(2, '0')}</em>`;
+        return `<a class="work" href="${escA(it.link || 'works.html')}">${inner}</a>`;
+      }).join('');
+    });
+  }
+
+  document.querySelectorAll('[data-slider]').forEach(box => {
+    const track = box.querySelector('.works-track');
+    const originals = [...track.children], count = originals.length;
+    originals.forEach(el => { const c = el.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.tabIndex = -1; track.appendChild(c); });
+    let i = 0;
+    const step = () => {
+      const first = track.children[0], gap = parseFloat(getComputedStyle(track).gap) || 0;
+      return first.getBoundingClientRect().width / (canvas.getBoundingClientRect().width / canvas.offsetWidth || 1) + gap;
+    };
+    const go = (animate) => {
+      track.style.transition = animate ? `transform ${SPEED}ms cubic-bezier(.65,0,.35,1)` : 'none';
+      track.style.transform = `translateX(${-i * step()}px)`;
+    };
+    track.addEventListener('transitionend', () => { if (i >= count) { i = 0; go(false); } });
+    let hover = false;
+    box.addEventListener('mouseenter', () => hover = true);
+    box.addEventListener('mouseleave', () => hover = false);
+    setInterval(() => {
+      if (hover || !box.closest('.panel').matches('body[data-mode="cha"] .panel--cha, body[data-mode="m"] .panel--m')) return;
+      i++; go(true);
+    }, INTERVAL);
+    addEventListener('resize', () => go(false));
+  });
+
+  // ===== トップのノート：お知らせデータから上2件を表示 =====
+  if (window.NEWS && window.NEWS.length) {
+    const esc = t => String(t ?? '').replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+    document.getElementById('note-list').innerHTML =
+      window.NEWS.slice(0, 2).map(n => `<li><time>${esc(n.date)}</time>${esc(n.title)}</li>`).join('');
+  }
+
+  // ===== 訪問者カウンター（Abacus：無料のカウントAPI） =====
+  // 同じ人が何度来ても番号が変わらないよう、最初にもらった番号をブラウザに保存
+  const vEl = document.getElementById('visitor'), vNo = document.getElementById('visitor-no');
+  const ordinal = n => { const v = n % 100; return n + (['th','st','nd','rd'][(v - 20) % 10] || ['th','st','nd','rd'][v] || 'th'); };
+  const show = n => { vNo.textContent = ordinal(n); vEl.classList.add('show'); };
+  let saved = null;
+  try { saved = parseInt(localStorage.getItem('tachaHP-visitor'), 10); } catch (e) {}
+  if (saved > 0) show(saved);
+  else fetch('https://abacus.jasoncameron.dev/hit/tachibana634work-github-io/visitors')
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(d => { const n = Number(d.value); if (n > 0) { try { localStorage.setItem('tachaHP-visitor', n); } catch (e) {} show(n); } })
+    .catch(() => {}); // 取得できないときは何も表示しない
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORKS | たちばな茶 / 634</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Michroma&family=Zen+Kaku+Gothic+New:wght@500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<!-- Adobe Fonts（たちばな茶：ADS-saikoro／634：Ethnocentric） -->
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'kcu0pvc',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+<style>
+:root{
+  --paper:#f2efe6;
+  --ink:#191919;
+  --cha:#8f6db5;
+  --cha-deep:#6b5486;
+  --font-cha:"ads-saikoro","Zen Maru Gothic",sans-serif;
+  --font-m:"ethnocentric","Michroma",sans-serif;
+  --font-en:"Chelsea Market","Zen Kaku Gothic New",sans-serif;
+  --font-ja:"Zen Kaku Gothic New",sans-serif;
+  --ease:cubic-bezier(.77,0,.18,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;color:var(--ink);
+  background:var(--paper) url("assets/paper.jpg") center/cover;
+  font-family:var(--font-en);font-synthesis:none;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+
+/* ---------- ヘッダー（WORKS一覧と同じ） ---------- */
+.head{display:flex;align-items:center;justify-content:space-between;padding:30px 48px;max-width:1440px;margin:0 auto}
+.back{font-size:14px;letter-spacing:.16em;display:inline-flex;gap:10px;align-items:center}
+.back span{transition:transform .3s var(--ease)}
+.back:hover span{transform:translateX(-5px)}
+.menu{list-style:none;display:flex;gap:34px}
+.menu a{font-size:16px;letter-spacing:.14em;position:relative}
+.menu a::after{content:"";position:absolute;left:0;bottom:-5px;height:1px;width:0;background:currentColor;transition:width .45s var(--ease)}
+.menu a:hover::after,.menu a[aria-current]::after{width:100%}
+
+/* ---------- 記事 ---------- */
+article{max-width:980px;margin:0 auto;padding:50px 48px 60px}
+.info{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.12em}
+.tag{padding:7px 16px;border-radius:99px;background:var(--ink);color:#fff;line-height:1}
+.tag.cha{font-family:var(--font-cha);background:var(--cha)}
+.tag.m{font-family:var(--font-m);font-size:10px}
+.date{opacity:.6}
+h1{font-family:var(--font-ja);font-weight:700;font-size:clamp(26px,3.4vw,40px);letter-spacing:.06em;line-height:1.5;margin-top:22px}
+.text{font-family:var(--font-ja);font-weight:500;font-size:15px;line-height:2.1;letter-spacing:.05em;margin-top:22px;white-space:pre-line}
+.text:empty{display:none}
+.text a{text-decoration:underline;text-underline-offset:3px;word-break:break-all}
+
+/* 画像：切り抜かず全体を表示 */
+.images{display:flex;flex-direction:column;gap:36px;margin-top:48px}
+.images img{width:100%;box-shadow:0 10px 30px -16px #00000040}
+.video{position:relative;aspect-ratio:16/9;margin-top:48px;background:#000;box-shadow:0 10px 30px -16px #00000040}
+.video{display:block;overflow:hidden}
+.video img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.video:hover img{transform:scale(1.03)}
+.video .play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;transition:transform .3s;
+  background:#191919cc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6.5v11l9-5.5z' fill='%23fff'/%3E%3C/svg%3E") center/34px no-repeat}
+.video:hover .play{transform:scale(1.1)}
+.ytlink{display:inline-block;margin-top:12px;font-family:var(--font-ja);font-size:12px;letter-spacing:.06em;text-decoration:underline;text-underline-offset:3px;opacity:.7}
+.ytlink:hover{opacity:1}
+.noimg{aspect-ratio:16/9;display:grid;place-items:center;font-size:14px;letter-spacing:.2em;opacity:.5;
+  background:repeating-linear-gradient(135deg,#ffffff80 0 10px,#00000008 10px 20px)}
+
+/* 前後の作品 */
+.pager{max-width:980px;margin:0 auto;padding:0 48px 100px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;font-size:13px;letter-spacing:.14em}
+.pager a:hover{opacity:.6}
+.pager .prev{justify-self:start}.pager .next{justify-self:end}
+.pager .list{justify-self:center;border-bottom:1px solid currentColor;padding-bottom:3px}
+
+.notfound{text-align:center;padding:120px 20px;font-family:var(--font-ja);line-height:2}
+
+@media (max-width:640px){
+  .head{padding:18px 20px}
+  .back{font-size:11px}.menu{gap:16px}.menu a{font-size:11px}
+  article{padding:30px 20px 40px}
+  .text{font-size:14px}
+  .images{gap:22px;margin-top:32px}
+  .video{margin-top:32px}
+  .pager{padding:0 20px 70px;font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <a class="back" href="works.html"><span>←</span>WORKS</a>
+  <ul class="menu">
+    <li><a href="works.html" aria-current="page">WORKS</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</header>
+
+<!-- 中身は assets/works-data.js の内容から自動で作られます -->
+<main id="main"></main>
+
+<script>document.write('<script src="assets/works-data.js?v=' + Date.now() + '"><\/script>')</script><!-- 古いデータが表示されないよう毎回最新を読み込む -->
+<script>
+(() => {
+  const list = window.WORKS || [];
+  const id = new URLSearchParams(location.search).get('id');
+  const i = list.findIndex(w => w.id === id);
+  const main = document.getElementById('main');
+  const esc = t => String(t ?? '').replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+  const label = { cha: 'たちばな茶', m: '634' };
+  const ytId = v => { const m = String(v || '').match(/(?:youtu\.be\/|v=|shorts\/|embed\/|live\/)([\w-]{11})/) || String(v || '').trim().match(/^([\w-]{11})$/); return m ? m[1] : ''; };
+  const pathOf = (v, dir) => !v ? '' : (/^(https?:|data:|\/)/.test(v) || v.includes('/')) ? v : `assets/${dir}/${v}`; // ファイル名だけなら assets/フォルダ/ を補う
+
+  if (i < 0) {
+    main.innerHTML = `<p class="notfound">作品が見つかりませんでした。<br><a href="works.html">← WORKS へ戻る</a></p>`;
+    return;
+  }
+  const w = list[i];
+  document.title = `${w.title} | たちばな茶 / 634`;
+  const vid = ytId(w.youtube);
+  // YouTube：ページ内で再生＋念のため「YouTubeで見る」リンク（埋め込み禁止の動画でも見られるように）
+  // YouTube：埋め込まず、サムネをクリックするとYouTubeが開く
+  const video = vid ? `<a class="video" href="https://www.youtube.com/watch?v=${vid}" target="_blank" rel="noopener" aria-label="YouTubeで見る">
+      <img src="https://i.ytimg.com/vi/${vid}/maxresdefault.jpg" alt="${esc(w.title)}" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${vid}/hqdefault.jpg'"><span class="play"></span></a>
+    <a class="ytlink" href="https://www.youtube.com/watch?v=${vid}" target="_blank" rel="noopener">YouTubeで見る ↗</a>` : '';
+  const imgs = (w.images || []).length
+    ? w.images.map((src, n) => `<img src="${esc(pathOf(src, 'works'))}" alt="${esc(w.title)} ${n + 1}" loading="${n ? 'lazy' : 'eager'}">`).join('')
+    : (vid ? '' : `<div class="noimg">IMAGE</div>`);
+  const prev = list[i - 1], next = list[i + 1];
+  const hash = w.name === 'cha' ? '#tachibana' : '#634';
+
+  main.innerHTML = `
+    <article>
+      <div class="info"><span class="tag ${esc(w.name)}">${label[w.name] || ''}</span><span class="date">${esc(w.date)}</span></div>
+      <h1>${esc(w.title)}</h1>
+      <p class="text">${esc(w.text).replace(/https?:\/\/[^\s<]+/g, u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`)}</p>
+      ${video}
+      ${imgs ? `<div class="images">${imgs}</div>` : ''}
+    </article>
+    <nav class="pager" aria-label="ほかの作品">
+      ${prev ? `<a class="prev" href="work.html?id=${encodeURIComponent(prev.id)}">← PREV</a>` : '<span></span>'}
+      <a class="list" href="works.html${hash}">WORKS LIST</a>
+      ${next ? `<a class="next" href="work.html?id=${encodeURIComponent(next.id)}">NEXT →</a>` : '<span></span>'}
+    </nav>`;
+})();
+</script>
+</body>
+</html>

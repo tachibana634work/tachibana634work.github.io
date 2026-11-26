@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONTACT | たちばな茶 / 634</title>
+<meta name="description" content="たちばな茶 / 634 へのお仕事のご依頼・お問い合わせ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Michroma&family=Zen+Kaku+Gothic+New:wght@500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<!-- Adobe Fonts（たちばな茶：ADS-saikoro／634：Ethnocentric） -->
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'kcu0pvc',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+<style>
+:root{
+  --paper:#f2efe6;
+  --ink:#191919;
+  --cha:#8f6db5;
+  --cha-deep:#6b5486;
+  --font-cha:"ads-saikoro","Zen Maru Gothic",sans-serif;
+  --font-m:"ethnocentric","Michroma",sans-serif;
+  --font-en:"Chelsea Market","Zen Kaku Gothic New",sans-serif;
+  --font-ja:"Zen Kaku Gothic New",sans-serif;
+  --ease:cubic-bezier(.77,0,.18,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;color:var(--ink);
+  background:var(--paper) url("assets/paper.jpg") center/cover;
+  font-family:var(--font-en);font-synthesis:none;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ---------- ヘッダー（WORKSと同じ） ---------- */
+.head{display:flex;align-items:center;justify-content:space-between;padding:30px 48px;max-width:1440px;margin:0 auto}
+.back{font-size:14px;letter-spacing:.16em;display:inline-flex;gap:10px;align-items:center}
+.back span{transition:transform .3s var(--ease)}
+.back:hover span{transform:translateX(-5px)}
+.menu{list-style:none;display:flex;gap:34px}
+.menu a{font-size:16px;letter-spacing:.14em;position:relative}
+.menu a::after{content:"";position:absolute;left:0;bottom:-5px;height:1px;width:0;background:currentColor;transition:width .45s var(--ease)}
+.menu a:hover::after,.menu a[aria-current]::after{width:100%}
+
+/* 見出し：WORKSページと同じ位置・大きさ */
+.page-title{max-width:1440px;margin:0 auto;padding:40px 48px 0}
+.page-title h1{font-weight:400;font-size:clamp(56px,8vw,112px);letter-spacing:.06em;line-height:1}
+main{max-width:1440px;margin:0 auto;padding:44px 48px 110px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.lead{grid-column:1 / -1;font-family:var(--font-ja);font-weight:500;font-size:14px;line-height:2;letter-spacing:.05em;margin-top:-14px}
+h2{font-weight:400;font-size:22px;letter-spacing:.12em;margin-bottom:18px}
+
+/* ---------- 注意事項 ---------- */
+.notes{border-top:1px solid #19191926}
+.notes details{border-bottom:1px solid #19191926}
+.notes summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:20px 4px;
+  font-family:var(--font-ja);font-weight:700;font-size:15px;letter-spacing:.08em}
+.notes summary::-webkit-details-marker{display:none}
+.plus{position:relative;width:13px;height:13px;flex:none}
+.plus::before,.plus::after{content:"";position:absolute;left:0;top:50%;width:100%;height:1.5px;background:var(--ink);transition:transform .35s var(--ease)}
+.plus::after{transform:rotate(90deg)}
+details[open] .plus::after{transform:rotate(0)}
+.note-body{padding:0 4px 26px;font-family:var(--font-ja);font-weight:500;font-size:14px;line-height:2;letter-spacing:.04em}
+.note-body p + p,.note-body p + table,.note-body table + p{margin-top:.9em}
+.note-body a{text-decoration:underline;text-underline-offset:3px}
+.note-body small{display:block;font-size:12px;opacity:.7}
+.note-imgs{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.note-imgs img{width:100%;height:auto;display:block}
+.price{width:100%;border-collapse:collapse}
+.price th,.price td{padding:9px 2px;border-bottom:1px dashed #19191930;text-align:left;font-weight:500}
+.price td{text-align:right;white-space:nowrap;font-family:var(--font-ja);font-weight:700}
+.tmpl{position:relative;background:#ffffff8c;padding:16px 18px;white-space:pre-line;font-size:13px;line-height:1.9}
+.copy{all:unset;cursor:pointer;position:absolute;top:10px;right:12px;font-family:var(--font-en);font-size:11px;letter-spacing:.1em;border-bottom:1px solid currentColor}
+
+/* ---------- フォーム ---------- */
+.form{position:sticky;top:24px;background:#ffffff73;padding:34px 34px 30px}
+.field{margin-bottom:22px}
+.label{display:block;font-family:var(--font-ja);font-weight:700;font-size:13px;letter-spacing:.08em;margin-bottom:9px}
+.label em{font-style:normal;font-size:10px;font-weight:500;margin-left:8px;padding:2px 7px;background:var(--ink);color:#fff;letter-spacing:.06em;vertical-align:1px}
+input[type=text],select,textarea{
+  width:100%;font:500 14px/1.7 var(--font-ja);letter-spacing:.04em;color:var(--ink);
+  background:#fff;border:1px solid #19191940;border-radius:0;padding:10px 12px;outline:none;transition:border-color .2s;
+  -webkit-appearance:none;appearance:none
+}
+select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23191919'/%3E%3C/svg%3E") right 14px center no-repeat;padding-right:36px}
+input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+textarea{resize:vertical;min-height:120px}
+.radios{display:flex;gap:10px}
+.radios label{flex:1;cursor:pointer}
+.radios input{position:absolute;opacity:0;pointer-events:none}
+.radios span{display:block;text-align:center;padding:10px;border:1px solid #19191940;background:#fff;font-family:var(--font-ja);font-weight:700;font-size:14px;letter-spacing:.1em;transition:background .2s,color .2s}
+.radios input:checked + span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.radios input:focus-visible + span{outline:2px solid var(--ink);outline-offset:2px}
+.hint{margin-top:8px;font-family:var(--font-ja);font-size:12px;line-height:1.8;opacity:.75}
+.hint a{text-decoration:underline}
+
+.req{display:none;border-top:1px dashed #19191940;padding-top:22px;margin-top:4px}
+.req.show{display:block;animation:open .4s var(--ease)}
+.req .field{margin-bottom:16px}
+.req .label{font-size:12px}
+.req textarea{min-height:70px}
+@keyframes open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+.submit{all:unset;box-sizing:border-box;cursor:pointer;display:flex;justify-content:center;align-items:center;gap:14px;width:100%;margin-top:10px;padding:18px;
+  background:var(--ink);color:#fff;font-family:var(--font-en);font-size:16px;letter-spacing:.2em;transition:opacity .3s}
+.submit:hover{opacity:.82}
+.submit-note{margin-top:12px;text-align:center;font-family:var(--font-ja);font-size:11px;line-height:1.9;opacity:.7}
+.submit-note a{font-family:var(--font-en);text-decoration:underline;text-underline-offset:3px}
+.error{display:none;margin-top:10px;text-align:center;font-family:var(--font-ja);font-size:12px;font-weight:700;color:#b2402a}
+.error.show{display:block}
+
+@media (max-width:900px){
+  main{grid-template-columns:1fr;gap:50px}
+  .form{position:static}
+}
+@media (max-width:640px){
+  .head{padding:18px 20px}
+  .back{font-size:11px}.menu{gap:16px}.menu a{font-size:11px}
+  .page-title{padding:24px 20px 0}
+  .page-title h1{font-size:clamp(30px,10.4vw,56px)}
+  main{padding:30px 20px 80px}
+  .lead{font-size:13px}
+  .form{padding:24px 18px}
+  .note-body{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <a class="back" href="index.html"><span>←</span>TOP</a>
+  <ul class="menu">
+    <li><a href="works.html">WORKS</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="contact.html" aria-current="page">CONTACT</a></li>
+  </ul>
+</header>
+
+<div class="page-title"><h1>CONTACT</h1></div>
+
+<main>
+  <p class="lead" id="lead"></p>
+
+  <!-- ===== 注意事項（assets/contact-data.js から自動で作られます） ===== -->
+  <section>
+    <h2>NOTES</h2>
+    <div class="notes" id="notes"></div>
+  </section>
+
+  <!-- ===== フォーム ===== -->
+  <section>
+    <h2>FORM</h2>
+    <form class="form" id="form" novalidate>
+
+      <div class="field">
+        <span class="label">ご依頼者区分<em>必須</em></span>
+        <div class="radios">
+          <label><input type="radio" name="who" value="企業" required><span>企業</span></label>
+          <label><input type="radio" name="who" value="個人"><span>個人</span></label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label" for="name">お名前<em>必須</em></label>
+        <input type="text" id="name" placeholder="企業名・ご担当者名、または活動名" autocomplete="name" required>
+      </div>
+
+      <div class="field">
+        <label class="label" for="type">お問い合わせの種別<em>必須</em></label>
+        <select id="type" required></select>
+        <p class="hint" id="hint-person" hidden></p>
+      </div>
+
+      <!-- 依頼の種別を選んだときだけ表示 -->
+      <div class="req" id="req"></div>
+
+      <div class="field" id="msg-field">
+        <label class="label" for="msg">お問い合わせ内容<em>必須</em></label>
+        <textarea id="msg"></textarea>
+      </div>
+
+      <button class="submit" type="submit">SEND <span>→</span></button>
+      <p class="error" id="error"></p>
+      <p class="submit-note" id="submit-note"></p>
+    </form>
+  </section>
+</main>
+
+<script>document.write('<script src="assets/contact-data.js?v=' + Date.now() + '"><\/script>')</script><!-- 古いデータが表示されないよう毎回最新を読み込む -->
+<script>
+(() => {
+  const C = window.CONTACT;
+  if (!C) { document.getElementById('lead').textContent = 'データ（assets/contact-data.js）を読み込めませんでした。'; return; }
+  const $ = s => document.querySelector(s);
+  const esc = t => String(t ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  // 本文の書式：空行で段落、※で始まる行は小さく、URLは自動リンク
+  const link = t => t.replace(/(https?:\/\/[^\s<]+|(?:www\.)?skeb\.jp\/[^\s<]+)/g, u => {
+    const href = /^https?:/.test(u) ? u : 'https://' + u;
+    return `<a href="${href}" target="_blank" rel="noopener">${u.replace(/^https?:\/\//, '')}</a>`;
+  });
+  const rich = text => String(text || '').trim().split(/\n\s*\n/).map(par => {
+    const lines = par.split('\n'), out = []; let buf = [];
+    const flush = () => { if (buf.length) { out.push(`<p>${buf.join('<br>')}</p>`); buf = []; } };
+    lines.forEach(l => { const h = link(esc(l)); if (/^\s*※/.test(l)) { flush(); out.push(`<small>${h}</small>`); } else buf.push(h); });
+    flush(); return out.join('');
+  }).join('');
+
+  /* ----- 本文・注意事項 ----- */
+  $('#lead').innerHTML = esc(C.lead).replace(/\n/g, '<br>');
+  const tmplText = (C.requestFields || []).map(f => `${f.label}：`).join('\n');
+  $('#notes').innerHTML = (C.notes || []).map(n => {
+    let inner = '';
+    if (n.kind === 'price') {
+      inner = `<table class="price">${(n.rows || []).map(r => `<tr><th>${esc(r.name)}</th><td>${esc(r.price)}</td></tr>`).join('')}</table>` + rich(n.body);
+    } else if (n.kind === 'template') {
+      inner = rich(n.body) + `<div class="tmpl" id="tmpl"><button class="copy" type="button" data-copy>COPY</button>${esc(tmplText)}</div>`;
+    } else inner = rich(n.body);
+    const imgs = (n.images || []).filter(Boolean);
+    if (imgs.length) inner += `<div class="note-imgs">${imgs.map(src => `<img src="${esc(/[\/:]/.test(src) ? src : 'assets/works/' + src)}" alt="" loading="lazy">`).join('')}</div>`;
+    return `<details${n.open ? ' open' : ''}><summary>${esc(n.title)}<span class="plus"></span></summary><div class="note-body">${inner}</div></details>`;
+  }).join('');
+
+  /* ----- フォーム ----- */
+  const form = $('#form'), type = $('#type'), req = $('#req'), msgField = $('#msg-field'), hint = $('#hint-person'), error = $('#error');
+  type.innerHTML = '<option value="">選択してください</option>' + (C.types || []).map(t => `<option>${esc(t)}</option>`).join('');
+  req.innerHTML = (C.requestFields || []).map((f, i) => `
+    <div class="field"><label class="label" for="r${i}">${esc(f.label)}</label>
+      ${f.long ? `<textarea id="r${i}" data-q="${esc(f.label)}" placeholder="${esc(f.placeholder)}"></textarea>`
+               : `<input type="text" id="r${i}" data-q="${esc(f.label)}" placeholder="${esc(f.placeholder)}">`}</div>`).join('');
+  hint.innerHTML = link(esc(C.personHint || ''));
+  $('#submit-note').innerHTML = esc(C.submitNote || '').replace(/\n/g, '<br>')
+    .replace('{email}', `<a href="mailto:${esc(C.email)}">${esc(C.email)}</a>`);
+
+  const update = () => {
+    const isReq = type.value && type.value === C.requestType;
+    req.classList.toggle('show', !!isReq);
+    msgField.hidden = !!isReq;
+    const who = form.querySelector('input[name="who"]:checked');
+    hint.hidden = !(isReq && who && who.value === '個人' && C.personHint);
+  };
+  type.addEventListener('change', update);
+  form.querySelectorAll('input[name="who"]').forEach(r => r.addEventListener('change', update));
+  form.addEventListener('input', () => error.classList.remove('show'));
+  form.addEventListener('change', () => error.classList.remove('show'));
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const who = form.querySelector('input[name="who"]:checked');
+    const name = $('#name').value.trim();
+    const msg = $('#msg').value.trim();
+    const isReq = type.value === C.requestType;
+    const missing = [];
+    if (!who) missing.push('ご依頼者区分');
+    if (!name) missing.push('お名前');
+    if (!type.value) missing.push('お問い合わせの種別');
+    if (type.value && !isReq && !msg) missing.push('お問い合わせ内容');
+    if (missing.length) { error.textContent = `${missing.join('・')}をご入力ください。`; error.classList.add('show'); return; }
+
+    const lines = [`【ご依頼者区分】${who.value}`, `【お名前】${name}`, `【お問い合わせの種別】${type.value}`, ''];
+    if (isReq) req.querySelectorAll('[data-q]').forEach(el => lines.push(`${el.dataset.q}：${el.value.trim()}`));
+    else lines.push(msg);
+    const subject = `【お問い合わせ】${type.value}／${name}`;
+    location.href = `mailto:${C.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+  });
+
+  // テンプレートをコピー
+  const copyBtn = document.querySelector('[data-copy]');
+  if (copyBtn) copyBtn.addEventListener('click', () => {
+    const done = () => { copyBtn.textContent = 'COPIED!'; setTimeout(() => copyBtn.textContent = 'COPY', 1500); };
+    (navigator.clipboard ? navigator.clipboard.writeText(tmplText) : Promise.reject()).then(done).catch(() => {
+      const t = document.createElement('textarea'); t.value = tmplText; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); done(); } catch (_) {} t.remove();
+    });
+  });
+})();
+</script>
+</body>
+</html>

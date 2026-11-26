@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORKS | たちばな茶 / 634</title>
+<meta name="description" content="たちばな茶 / 634 の制作実績一覧">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Michroma&family=Zen+Kaku+Gothic+New:wght@500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<!-- Adobe Fonts（たちばな茶：ADS-saikoro／634：Ethnocentric） -->
+<script>
+  (function(d) {
+    var config = {
+      kitId: 'kcu0pvc',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+<style>
+:root{
+  --paper:#f2efe6;
+  --ink:#191919;
+  --cha:#8f6db5;
+  --cha-deep:#6b5486;
+  --font-cha:"ads-saikoro","Zen Maru Gothic",sans-serif;
+  --font-m:"ethnocentric","Michroma",sans-serif;
+  --font-en:"Chelsea Market","Zen Kaku Gothic New",sans-serif;
+  --ease:cubic-bezier(.77,0,.18,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;color:var(--ink);
+  background:var(--paper) url("assets/paper.jpg") center/cover;
+  font-family:var(--font-en);font-synthesis:none;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{all:unset;cursor:pointer}
+
+/* ---------- ヘッダー ---------- */
+.head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:30px 48px;max-width:1440px;margin:0 auto;
+}
+.back{font-size:14px;letter-spacing:.16em;display:inline-flex;gap:10px;align-items:center}
+.back span{transition:transform .3s var(--ease)}
+.back:hover span{transform:translateX(-5px)}
+.menu{list-style:none;display:flex;gap:34px}
+.menu a{font-size:16px;letter-spacing:.14em;position:relative}
+.menu a::after{content:"";position:absolute;left:0;bottom:-5px;height:1px;width:0;background:currentColor;transition:width .45s var(--ease)}
+.menu a:hover::after,.menu a[aria-current]::after{width:100%}
+
+/* ---------- タイトル・ソート ---------- */
+main{max-width:1440px;margin:0 auto;padding:40px 48px 100px}
+h1{font-weight:400;font-size:clamp(56px,8vw,112px);letter-spacing:.06em;line-height:1}
+.filter{display:flex;gap:12px;margin:34px 0 44px;flex-wrap:wrap}
+.filter button{
+  padding:11px 24px;border:1px solid var(--ink);border-radius:99px;
+  font-size:14px;letter-spacing:.12em;line-height:1;transition:background .3s,color .3s,border-color .3s;
+}
+.filter button[data-f="cha"]{font-family:var(--font-cha)}
+.filter button[data-f="m"]{font-family:var(--font-m);font-size:12px}
+.filter button:hover{background:#19191910}
+.filter button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.filter button[data-f="cha"][aria-pressed="true"]{background:var(--cha);border-color:var(--cha)}
+
+/* ---------- 作品一覧（16:9） ---------- */
+.grid{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:40px 28px}
+.item{transition:opacity .4s,transform .4s var(--ease)}
+.item.hide{display:none}
+.item.fade{opacity:0;transform:translateY(12px)}
+.thumb{
+  display:block;aspect-ratio:16/9;overflow:hidden;
+  background:var(--img) center/cover no-repeat;
+  transition:transform .5s var(--ease),filter .3s;
+}
+.item a:hover .thumb{transform:scale(1.03)}
+.thumb{position:relative}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+/* YouTube作品には再生マーク */
+.thumb.is-yt::after{content:"";position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;z-index:1;
+  background:#191919cc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6.5v11l9-5.5z' fill='%23fff'/%3E%3C/svg%3E") center/22px no-repeat}
+.item[data-name="cha"] .thumb{--img:linear-gradient(150deg,#f6eefc,#d6c0ec)}
+.item[data-name="m"] .thumb{--img:repeating-linear-gradient(135deg,#f0f0f0 0 10px,#e4e4e4 10px 20px)}
+.meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:12px}
+.title{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500;font-size:14px;letter-spacing:.06em}
+.tag{font-size:11px;letter-spacing:.1em;white-space:nowrap;opacity:.6}
+.item[data-name="cha"] .tag{font-family:var(--font-cha);color:var(--cha-deep);opacity:1}
+.item[data-name="m"] .tag{font-family:var(--font-m);font-size:9px}
+
+/* ---------- and more! ---------- */
+.more{text-align:center;margin-top:90px}
+.more-en{font-size:clamp(34px,4.4vw,56px);letter-spacing:.08em;line-height:1}
+.more-ja{margin-top:18px;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:500;font-size:12px;line-height:2;letter-spacing:.06em;opacity:.7}
+.more-ja .sp{display:none}
+.more-ja a{text-decoration:underline;text-underline-offset:3px;font-family:var(--font-en);letter-spacing:.1em}
+
+@media (max-width:1000px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){
+  .head{padding:18px 20px}
+  .back{font-size:11px}.menu{gap:16px}.menu a{font-size:11px}
+  main{padding:24px 20px 80px}
+  .filter{margin:22px 0 28px}.filter button{padding:9px 16px;font-size:12px}
+  .grid{grid-template-columns:1fr;gap:30px}
+  .more{margin-top:60px}.more-ja{font-size:11px}.more-ja .sp{display:inline}
+}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <a class="back" href="index.html"><span>←</span>TOP</a>
+  <ul class="menu">
+    <li><a href="works.html" aria-current="page">WORKS</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</header>
+
+<main>
+  <h1>WORKS</h1>
+
+  <div class="filter" role="group" aria-label="名義で絞り込み">
+    <button data-f="all" aria-pressed="true">ALL</button>
+    <button data-f="cha" aria-pressed="false">たちばな茶</button>
+    <button data-f="m" aria-pressed="false">634</button>
+  </div>
+
+  <!-- 作品は assets/works-data.js から自動で並びます -->
+  <ul class="grid" id="grid"></ul>
+
+  <div class="more">
+    <p class="more-en">and more!</p>
+    <p class="more-ja">現在サイト開設したてのため随時準備中です。<br>非公開案件につきましては<br class="sp"><a href="contact.html">CONTACT</a>よりお問い合わせください。</p>
+  </div>
+</main>
+
+<script>document.write('<script src="assets/works-data.js?v=' + Date.now() + '"><\/script>')</script><!-- 古いデータが表示されないよう毎回最新を読み込む -->
+<script>
+(() => {
+  // ===== 一覧を作品データから生成 =====
+  // サムネ：指定がなければ作品ページの1枚目を使う。切り抜き位置・拡大率は admin.html で調整
+  const pathOf = (v, dir) => !v ? '' : (/^(https?:|data:|\/)/.test(v) || v.includes('/')) ? v : `assets/${dir}/${v}`; // ファイル名だけなら assets/フォルダ/ を補う
+  const ytId = v => { const m = String(v || '').match(/(?:youtu\.be\/|v=|shorts\/|embed\/|live\/)([\w-]{11})/) || String(v || '').trim().match(/^([\w-]{11})$/); return m ? m[1] : ''; };
+  // サムネ：指定画像 → 作品画像の1枚目 → YouTubeの自動サムネ の順で使う
+  const thumbOf = w => (w.thumb || (w.images || [])[0]) ? pathOf(w.thumb || w.images[0], 'works') : (ytId(w.youtube) ? `https://i.ytimg.com/vi/${ytId(w.youtube)}/hqdefault.jpg` : '');
+  const cropStyle = c => { const x = c?.x ?? 50, y = c?.y ?? 50, z = c?.z ?? 1;
+    return `object-position:${x}% ${y}%;transform:scale(${z});transform-origin:${x}% ${y}%`; };
+  const label = { cha: 'たちばな茶', m: '634' };
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+  document.getElementById('grid').innerHTML = (window.WORKS || []).map(w => `
+    <li class="item" data-name="${esc(w.name)}">
+      <a href="work.html?id=${encodeURIComponent(w.id)}">
+        <span class="thumb${ytId(w.youtube) ? ' is-yt' : ''}">${thumbOf(w) ? `<img src="${esc(thumbOf(w))}" alt="" loading="lazy" style="${cropStyle(w.thumbCrop)}">` : ''}</span>
+        <div class="meta"><p class="title">${esc(w.title)}</p><span class="tag">${label[w.name] || ''}</span></div>
+      </a>
+    </li>`).join('');
+
+  const buttons = document.querySelectorAll('.filter button');
+  const items = [...document.querySelectorAll('.item')];
+  const hashMap = { '#tachibana': 'cha', '#634': 'm' };
+
+  const apply = (f, animate = true) => {
+    buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.f === f));
+    items.forEach(el => {
+      const show = f === 'all' || el.dataset.name === f;
+      el.classList.toggle('hide', !show);
+      if (show && animate) { el.classList.add('fade'); requestAnimationFrame(() => requestAnimationFrame(() => el.classList.remove('fade'))); }
+    });
+    const hash = f === 'cha' ? '#tachibana' : f === 'm' ? '#634' : '';
+    history.replaceState(null, '', location.pathname + hash);
+  };
+
+  buttons.forEach(b => b.addEventListener('click', () => apply(b.dataset.f)));
+  // トップの「VIEW MORE」から来たときは、その名義で絞り込んだ状態で開く
+  apply(hashMap[location.hash] || 'all', false);
+})();
+</script>
+</body>
+</html>
